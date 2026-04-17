@@ -120,7 +120,45 @@ Typical outputs:
 
 ## Installation as a Skill
 
-Use the helper installer if you want to install into Claude Code, Codex, or Pi from the cloned repo:
+### Recommended install flow
+
+> The modern shared install flow is `npx skills add ...`. The older `npx add-skill ...` name exists as a deprecated alias, but `skills` is the current command.
+
+List the skills available in this repo:
+
+```bash
+npx -y skills add liamvinberg/prompt-profiler --list
+```
+
+Install the `prompt-profiler` skill for all detected agents in the current project:
+
+```bash
+npx -y skills add liamvinberg/prompt-profiler --skill prompt-profiler -y
+```
+
+Install only for specific agents:
+
+```bash
+npx -y skills add liamvinberg/prompt-profiler \
+  --skill prompt-profiler \
+  -a claude-code \
+  -a codex \
+  -a pi \
+  -a opencode \
+  -y
+```
+
+Install globally instead of project-level:
+
+```bash
+npx -y skills add liamvinberg/prompt-profiler --skill prompt-profiler -g -y
+```
+
+### Manual install fallback
+
+> Use this only if you do not want to use the shared `skills` installer.
+
+Use the helper installer from a cloned checkout if you want to install into Claude Code, Codex, or Pi directly:
 
 ```bash
 python3 install.py claude
@@ -128,9 +166,7 @@ python3 install.py codex
 python3 install.py pi
 ```
 
-### Claude Code / OMC
-
-Copy the skill folder into your Claude skills directory:
+#### Claude Code / OMC
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -145,27 +181,21 @@ Example opening request:
 Use the prompt-profiler skill to inspect my local agent harnesses, extract my own prompts, and generate a working-style profile.
 ```
 
-### Codex
-
-Copy the skill folder into your Codex skills directory:
+#### Codex
 
 ```bash
 mkdir -p ~/.codex/skills
 cp -R skills/prompt-profiler ~/.codex/skills/
 ```
 
-### Pi (Oh My Pi)
-
-Copy the skill folder into your Pi skill directory:
+#### Pi (Oh My Pi)
 
 ```bash
 mkdir -p ~/.pi/agent/skills
 cp -R skills/prompt-profiler ~/.pi/agent/skills/
 ```
 
-### OpenCode
-
-OpenCode works better with a repo-level pack than a single loose skill folder. Clone this repository into the OpenCode skills root:
+#### OpenCode
 
 ```bash
 git clone https://github.com/liamvinberg/prompt-profiler.git \
