@@ -1,8 +1,8 @@
-# Agent Harness Preference Extractor
+# Prompt Profiler
 
 Extract your own prompts from supported coding-agent harnesses, distill repeated preferences, and generate skill-ready outputs.
 
-This project is for people who switch between agentic coding harnesses and do not want to keep repeating the same setup instructions, stack preferences, and workflow rules.
+Prompt Profiler is for people who switch between agentic coding harnesses and do not want to keep repeating the same setup instructions, stack preferences, and workflow rules.
 
 The extractor runs locally, reads supported prompt stores, normalizes your prompts into one schema, and emits:
 
@@ -60,7 +60,7 @@ This project turns those repeated instructions into structured outputs you can r
 
 ```text
 skills/
-└── harness-preference-extractor/
+└── prompt-profiler/
     ├── SKILL.md
     ├── references/
     └── scripts/
@@ -70,33 +70,33 @@ skills/
 tests/
 ```
 
-The skill is self-contained under `skills/harness-preference-extractor/`.
+The skill is self-contained under `skills/prompt-profiler/`.
 
 ## Quick Start
 
 Clone the repo:
 
 ```bash
-git clone https://github.com/<your-org>/agent-harness-preference-extractor.git
-cd agent-harness-preference-extractor
+git clone https://github.com/liamvinberg/prompt-profiler.git
+cd prompt-profiler
 ```
 
 Detect which supported harnesses are present on the current machine:
 
 ```bash
-python3 skills/harness-preference-extractor/scripts/detect_harnesses.py
+python3 skills/prompt-profiler/scripts/detect_harnesses.py
 ```
 
 Run the extractor locally and write outputs to `./output`:
 
 ```bash
-python3 skills/harness-preference-extractor/scripts/extract_preferences.py --output-dir ./output
+python3 skills/prompt-profiler/scripts/extract_preferences.py --output-dir ./output
 ```
 
 Limit extraction to specific harnesses:
 
 ```bash
-python3 skills/harness-preference-extractor/scripts/extract_preferences.py \
+python3 skills/prompt-profiler/scripts/extract_preferences.py \
   --harness opencode \
   --harness claude_code \
   --harness codex \
@@ -118,8 +118,6 @@ Typical outputs:
 - `working_style.md`
 - `summary.json`
 
-
-
 ## Installation as a Skill
 
 Use the helper installer if you want to install into Claude Code, Codex, or Pi from the cloned repo:
@@ -130,14 +128,13 @@ python3 install.py codex
 python3 install.py pi
 ```
 
-
 ### Claude Code / OMC
 
 Copy the skill folder into your Claude skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -R skills/harness-preference-extractor ~/.claude/skills/
+cp -R skills/prompt-profiler ~/.claude/skills/
 ```
 
 Then either invoke it explicitly in your request or let the harness pick it up when the task matches.
@@ -145,7 +142,7 @@ Then either invoke it explicitly in your request or let the harness pick it up w
 Example opening request:
 
 ```text
-Use the harness-preference-extractor skill to inspect my local agent harnesses, extract my own prompts, and generate a working-style profile.
+Use the prompt-profiler skill to inspect my local agent harnesses, extract my own prompts, and generate a working-style profile.
 ```
 
 ### Codex
@@ -154,7 +151,7 @@ Copy the skill folder into your Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/harness-preference-extractor ~/.codex/skills/
+cp -R skills/prompt-profiler ~/.codex/skills/
 ```
 
 ### Pi (Oh My Pi)
@@ -163,7 +160,7 @@ Copy the skill folder into your Pi skill directory:
 
 ```bash
 mkdir -p ~/.pi/agent/skills
-cp -R skills/harness-preference-extractor ~/.pi/agent/skills/
+cp -R skills/prompt-profiler ~/.pi/agent/skills/
 ```
 
 ### OpenCode
@@ -171,8 +168,8 @@ cp -R skills/harness-preference-extractor ~/.pi/agent/skills/
 OpenCode works better with a repo-level pack than a single loose skill folder. Clone this repository into the OpenCode skills root:
 
 ```bash
-git clone https://github.com/<your-org>/agent-harness-preference-extractor.git \
-  ~/.config/opencode/skills/agent-harness-preference-extractor
+git clone https://github.com/liamvinberg/prompt-profiler.git \
+  ~/.config/opencode/skills/prompt-profiler
 ```
 
 The OpenCode-specific shape is already present under `skills/` in the repo.
@@ -214,7 +211,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 Run local extraction against the current machine:
 
 ```bash
-python3 skills/harness-preference-extractor/scripts/extract_preferences.py --output-dir ./output
+python3 skills/prompt-profiler/scripts/extract_preferences.py --output-dir ./output
 ```
 
 ## Inspiration and Packaging Pattern
@@ -228,4 +225,4 @@ This repo intentionally follows the public patterns used by popular skill reposi
 
 ## License
 
-Add your preferred license before publishing.
+MIT

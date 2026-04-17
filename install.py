@@ -5,7 +5,7 @@ import argparse
 import shutil
 from pathlib import Path
 
-SKILL_NAME = "harness-preference-extractor"
+SKILL_NAME = "prompt-profiler"
 REPO_ROOT = Path(__file__).resolve().parent
 SKILL_SOURCE = REPO_ROOT / "skills" / SKILL_NAME
 
@@ -26,7 +26,7 @@ def install(target: str) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Install the harness-preference-extractor skill into a supported local harness skill directory.")
+    parser = argparse.ArgumentParser(description="Install the prompt-profiler skill into a supported local harness skill directory.")
     parser.add_argument("target", choices=sorted(TARGETS), help="Harness target: claude, codex, or pi")
     ns = parser.parse_args()
     install(ns.target)

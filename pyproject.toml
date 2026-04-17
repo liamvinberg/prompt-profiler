@@ -1,5 +1,5 @@
 [project]
-name = "agent-harness-preference-extractor"
+name = "prompt-profiler"
 version = "0.1.0"
 description = "Portable skill and local extractor for deriving user preferences from supported coding-agent harnesses"
 requires-python = ">=3.9"

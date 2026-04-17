@@ -1,9 +1,9 @@
 ---
-name: harness-preference-extractor
+name: prompt-profiler
 description: Extract a user's own prompts from supported local coding-agent harnesses, normalize them into a shared schema, and distill repeated preferences into reusable outputs such as baseline instructions, working-style notes, and candidate custom skills. Use when a user wants to mine their own agent history across tools like OpenCode, Claude Code, Codex, Cursor, or Pi.
 ---
 
-# Harness Preference Extractor
+# Prompt Profiler
 
 ## Goal
 

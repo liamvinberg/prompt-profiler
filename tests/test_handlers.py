@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-SCRIPT_ROOT = Path(__file__).resolve().parents[1] / "skills" / "harness-preference-extractor" / "scripts"
+SCRIPT_ROOT = Path(__file__).resolve().parents[1] / "skills" / "prompt-profiler" / "scripts"
 sys.path.insert(0, str(SCRIPT_ROOT))
 
 from harness_preference_extractor.handlers import ClaudeCodeHandler, CodexHandler, CursorHandler, OpenCodeHandler, PiHandler
